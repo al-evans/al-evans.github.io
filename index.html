@@ -4,96 +4,119 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- EDIT: Your name + tagline show up in the browser tab and Google results -->
-  <title>Amanda Evans — Social Media Manager</title>
-  <meta name="description" content="Social media manager helping brands grow through strategy, content, and community." />
+  <title>Amanda Evans — Social Media Specialist</title>
+  <meta name="description" content="GitHub social media specialist working at the intersection of digital marketing, community building, and developer relations." />
+  <meta name="color-scheme" content="dark" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
     /* ===== EDIT YOUR BRAND COLORS & FONTS HERE ===== */
     :root {
-      --accent: #7c3aed;        /* primary brand color */
-      --accent-2: #ec4899;      /* gradient partner color */
-      --ink: #1c1b29;           /* main text */
-      --muted: #6b7280;         /* secondary text */
-      --bg: #ffffff;
-      --bg-soft: #f7f6fb;
-      --card: #ffffff;
-      --radius: 18px;
-      --shadow: 0 12px 30px rgba(28,27,41,.08);
-      --font-head: "Poppins", system-ui, sans-serif;
-      --font-body: "Inter", system-ui, sans-serif;
+      --accent: #58a6ff;            /* single accent — preview others with the swatcher, then I'll lock it in */
+      --accent-soft: rgba(88,166,255,.12);
+      --bg: #0d1117;                /* deep charcoal canvas */
+      --bg-soft: #161b22;           /* lifted panels / cards */
+      --border: #30363d;            /* card + divider borders */
+      --border-soft: #21262d;
+      --ink: #e6edf3;              /* primary text (near-white) */
+      --muted: #8b949e;            /* secondary text (gray) */
+      --radius: 12px;
+      --font-body: "Inter", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); color: var(--ink); background: var(--bg); line-height: 1.65; }
-    h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; }
+    body { font-family: var(--font-body); color: var(--ink); background: var(--bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; }
     a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    .gradient-text { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+
+    /* Mono section labels — the "// comment" developer touch */
+    .label { font-family: var(--font-mono); font-size: .8rem; color: var(--accent); letter-spacing: .02em; }
 
     /* Buttons */
-    .btn { display: inline-block; padding: 13px 26px; border-radius: 999px; font-weight: 600; transition: transform .15s ease, box-shadow .15s ease; }
-    .btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #fff; box-shadow: var(--shadow); }
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: .95rem; transition: transform .15s ease, background .2s ease, border-color .2s ease; }
+    .btn-primary { background: var(--accent); color: #0d1117; }
     .btn-primary:hover { transform: translateY(-2px); }
-    .btn-ghost { border: 1.5px solid #e5e3ef; }
-    .btn-ghost:hover { border-color: var(--accent); }
+    .btn-ghost { border: 1px solid var(--border); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
     /* Nav */
-    header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.85); backdrop-filter: blur(10px); border-bottom: 1px solid #eee; }
-    nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .logo { font-family: var(--font-head); font-weight: 800; font-size: 1.2rem; }
-    .nav-links { display: flex; gap: 28px; }
-    .nav-links a { color: var(--muted); font-weight: 500; }
+    header { position: sticky; top: 0; z-index: 50; background: rgba(13,17,23,.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-soft); }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .logo { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; }
+    .logo b { color: var(--accent); }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a { color: var(--muted); font-size: .95rem; font-weight: 500; transition: color .2s ease; }
     .nav-links a:hover { color: var(--ink); }
-    .menu-btn { display: none; font-size: 1.5rem; background: none; border: 0; cursor: pointer; }
+    .menu-btn { display: none; font-size: 1.4rem; background: none; border: 0; color: var(--ink); cursor: pointer; }
 
     /* Hero */
-    .hero { padding: 90px 0 70px; background: radial-gradient(1200px 400px at 80% -10%, rgba(124,58,237,.10), transparent), var(--bg); }
-    .hero .eyebrow { color: var(--accent); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; font-size: .85rem; }
-    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; margin: 14px 0 18px; }
-    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 640px; }
-    .hero .cta { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+    .hero { padding: 110px 0 80px; background: radial-gradient(820px 320px at 72% -18%, var(--accent-soft), transparent); }
+    .hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.7rem); font-weight: 800; margin: 20px 0 22px; max-width: 760px; }
+    .hero h1 .accent { color: var(--accent); }
+    .hero p { font-size: 1.12rem; color: var(--muted); max-width: 620px; }
+    .hero .cta { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
 
     /* Sections */
-    section { padding: 72px 0; }
-    .section-soft { background: var(--bg-soft); }
-    .section-title { text-align: center; font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 700; }
-    .section-sub { text-align: center; color: var(--muted); margin: 12px auto 46px; max-width: 540px; }
+    section { padding: 70px 0; border-top: 1px solid var(--border-soft); }
+    .section-head { margin-bottom: 40px; }
+    .section-head h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-top: 10px; }
 
     /* About */
-    .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
-    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .skill { background: #fff; border: 1px solid #eee; padding: 8px 16px; border-radius: 999px; font-size: .9rem; font-weight: 500; }
+    .about { display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; align-items: start; }
+    .about p { color: var(--muted); margin-bottom: 16px; }
+    .about p strong { color: var(--ink); font-weight: 600; }
+    .skills { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
+    .skill { font-family: var(--font-mono); font-size: .82rem; color: var(--muted); background: var(--bg-soft); border: 1px solid var(--border); padding: 6px 13px; border-radius: 999px; }
+    .stat-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+    .stat { padding: 14px 0; border-bottom: 1px solid var(--border-soft); }
+    .stat:last-child { border-bottom: 0; padding-bottom: 0; }
+    .stat:first-child { padding-top: 0; }
+    .stat b { display: block; font-size: 1.9rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
+    .stat span { color: var(--muted); font-size: .92rem; }
 
-    /* Cards grid */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .card { background: var(--card); border: 1px solid #eee; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
-    .card h3 { font-size: 1.15rem; margin-bottom: 10px; }
-    .card p { color: var(--muted); font-size: .96rem; }
-    .card .icon { font-size: 1.8rem; margin-bottom: 14px; }
+    /* Experience — brands */
+    .lede { color: var(--muted); max-width: 640px; margin-bottom: 28px; }
+    .brands { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+    .brand { position: relative; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 20px; font-weight: 600; transition: border-color .2s ease, transform .2s ease; }
+    .brand:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .brand small { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--accent); margin-top: 6px; font-weight: 500; }
+    .edu { margin-top: 18px; display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: .96rem; }
+    .edu b { color: var(--ink); font-weight: 600; }
+    .edu .tag { font-family: var(--font-mono); font-size: .72rem; color: var(--accent); border: 1px solid var(--border); border-radius: 6px; padding: 4px 9px; }
 
-    /* Highlights / metrics */
-    .metric { font-family: var(--font-head); font-weight: 800; font-size: 2.4rem; }
-    .metric span { display: block; font-family: var(--font-body); font-weight: 500; font-size: .95rem; color: var(--muted); margin-top: 4px; }
-
-    /* Testimonial */
-    .quote { max-width: 760px; margin: 0 auto; text-align: center; font-family: var(--font-head); font-weight: 600; font-size: clamp(1.2rem, 2.6vw, 1.6rem); }
-    .quote + .byline { text-align: center; color: var(--muted); margin-top: 18px; }
+    /* Focus grid */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; transition: border-color .2s ease, transform .2s ease; }
+    .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .card .num { font-family: var(--font-mono); font-size: .82rem; color: var(--accent); }
+    .card h3 { font-size: 1.08rem; font-weight: 600; margin: 12px 0 8px; }
+    .card p { color: var(--muted); font-size: .94rem; }
 
     /* Contact */
-    .contact { text-align: center; }
-    .socials { display: flex; justify-content: center; gap: 18px; margin-top: 26px; flex-wrap: wrap; }
-    .socials a { font-weight: 600; color: var(--accent); }
+    .contact-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin: 12px 0 16px; max-width: 600px; }
+    .contact-head p { color: var(--muted); max-width: 520px; margin-bottom: 26px; }
+    .socials { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .social-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: .9rem; color: var(--ink); background: var(--bg-soft); border: 1px solid var(--border); padding: 10px 16px; border-radius: 8px; transition: border-color .2s ease, color .2s ease; }
+    .social-link:hover { border-color: var(--accent); color: var(--accent); }
 
-    footer { padding: 30px 0; text-align: center; color: var(--muted); font-size: .9rem; border-top: 1px solid #eee; }
+    footer { padding: 34px 0; border-top: 1px solid var(--border-soft); }
+    footer p { color: var(--muted); font-size: .88rem; font-family: var(--font-mono); }
+
+    /* ===== PREVIEW-ONLY swatcher (remove before publishing) ===== */
+    #swatcher { position: fixed; bottom: 18px; right: 18px; z-index: 100; display: flex; align-items: center; gap: 9px; background: var(--bg-soft); border: 1px solid var(--border); padding: 9px 13px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.45); }
+    #swatcher span { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); }
+    #swatcher button { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); cursor: pointer; padding: 0; transition: transform .15s ease; }
+    #swatcher button:hover { transform: scale(1.18); }
 
     /* Mobile */
-    @media (max-width: 780px) {
-      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: #fff; flex-direction: column; padding: 18px 24px; gap: 16px; border-bottom: 1px solid #eee; }
+    @media (max-width: 760px) {
+      .nav-links { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--bg); flex-direction: column; padding: 18px 24px; gap: 16px; border-bottom: 1px solid var(--border); }
       .nav-links.open { display: flex; }
       .menu-btn { display: block; }
       .about, .grid { grid-template-columns: 1fr; }
@@ -106,11 +129,11 @@
     <div class="wrap">
       <nav>
         <!-- EDIT: Your name / initials -->
-        <a class="logo gradient-text" href="#">Amanda Evans</a>
+        <a class="logo" href="#">Amanda <b>Evans</b></a>
         <div class="nav-links" id="navLinks">
           <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#focus">Focus</a>
           <a href="#contact">Contact</a>
         </div>
         <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
@@ -119,114 +142,103 @@
   </header>
 
   <!-- ===== HERO ===== -->
-  <section class="hero">
+  <section class="hero" style="border-top:0">
     <div class="wrap">
-      <p class="eyebrow">Social Media Manager</p>
+      <p class="label">GitHub · Social Media Specialist</p>
       <!-- EDIT: Your headline -->
-      <h1>I help brands <span class="gradient-text">grow, connect,</span><br />and stand out online.</h1>
+      <h1>Turning complex technical ecosystems into <span class="accent">stories developers love.</span></h1>
       <!-- EDIT: One or two sentences about what you do -->
-      <p>Strategy-led content and community building that turns followers into loyal fans — and engagement into real results.</p>
+      <p>I work at the intersection of digital marketing, community building, and developer relations — helping developers connect, learn, and build.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="#work">View My Work</a>
-        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+        <a class="btn btn-primary" href="#experience">View Experience</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/amanda-evans-social" target="_blank" rel="noopener">Connect on LinkedIn</a>
       </div>
     </div>
   </section>
 
   <!-- ===== ABOUT ===== -->
   <section id="about">
-    <div class="wrap about">
-      <div>
-        <h2 class="section-title" style="text-align:left">Hi, I'm Amanda 👋</h2>
-        <!-- EDIT: Your bio -->
-        <p style="margin-top:16px; color:var(--muted)">
-          I'm a social media manager with a passion for storytelling and data-driven creativity.
-          Over the past few years I've helped brands find their voice, build engaged communities,
-          and turn scrolls into meaningful connections. When I'm not planning content calendars,
-          you'll find me chasing trends and sipping way too much coffee.
-        </p>
-        <div class="skills">
-          <!-- EDIT: Your skills/tools -->
-          <span class="skill">Content Strategy</span>
-          <span class="skill">Instagram &amp; TikTok</span>
-          <span class="skill">Community Management</span>
-          <span class="skill">Paid Social</span>
-          <span class="skill">Analytics</span>
-          <span class="skill">Canva &amp; Adobe</span>
-        </div>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">// about</p>
+        <h2>Hi, I'm Amanda</h2>
       </div>
-      <div class="card">
-        <div class="metric">5+ <span>Years experience</span></div>
-        <div class="metric" style="margin-top:22px">30+ <span>Brands &amp; campaigns</span></div>
-        <div class="metric" style="margin-top:22px">1.2M <span>Audience reached</span></div>
+      <div class="about">
+        <div>
+          <!-- EDIT: Your bio -->
+          <p>As <strong>GitHub's social media specialist</strong>, I operate at the intersection of digital marketing, community building, and developer relations.</p>
+          <p>My focus: translate complex technical ecosystems — from open-source milestones to AI tool use cases — into engaging community narratives that help developers <strong>connect, learn, and build</strong>.</p>
+          <div class="skills">
+            <!-- EDIT: Your skills -->
+            <span class="skill">Social Media Strategy</span>
+            <span class="skill">Developer Relations</span>
+            <span class="skill">Generative &amp; Agentic AI</span>
+            <span class="skill">Social Media Analytics</span>
+            <span class="skill">Project Management</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <!-- EDIT: Your numbers -->
+          <div class="stat"><b>11</b><span>Years in marketing</span></div>
+          <div class="stat"><b>5</b><span>Iconic brands</span></div>
+          <div class="stat"><b>UCLA</b><span>B.A. in English</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SERVICES ===== -->
-  <section id="services" class="section-soft">
+  <!-- ===== EXPERIENCE / BRANDS ===== -->
+  <section id="experience">
     <div class="wrap">
-      <h2 class="section-title">What I Do</h2>
-      <p class="section-sub">Full-funnel social media support, from the first post to the final report.</p>
+      <div class="section-head">
+        <p class="label">// experience</p>
+        <h2>Brands I've Helped Tell Their Story</h2>
+      </div>
+      <p class="lede">Eleven years translating brands into stories — across automotive, travel, primetime entertainment, and now developer tech.</p>
+      <div class="brands">
+        <!-- EDIT: Your brands -->
+        <div class="brand">GitHub<small>Current</small></div>
+        <div class="brand">Wheel of Fortune</div>
+        <div class="brand">Jeopardy!</div>
+        <div class="brand">Hertz</div>
+        <div class="brand">Bridgestone Tires</div>
+      </div>
+      <div class="edu">
+        <span class="tag">EDU</span>
+        <span><b>B.A. in English</b> — University of California, Los Angeles (UCLA)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOCUS ===== -->
+  <section id="focus">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">// focus</p>
+        <h2>What I Do</h2>
+      </div>
       <div class="grid">
-        <!-- EDIT: Your services -->
-        <div class="card"><div class="icon">🎯</div><h3>Strategy &amp; Planning</h3><p>Audience research, content pillars, and roadmaps tailored to your goals.</p></div>
-        <div class="card"><div class="icon">✨</div><h3>Content Creation</h3><p>Scroll-stopping posts, reels, and stories that sound like your brand.</p></div>
-        <div class="card"><div class="icon">💬</div><h3>Community Management</h3><p>Genuine engagement that builds trust and keeps your audience coming back.</p></div>
-        <div class="card"><div class="icon">📈</div><h3>Paid Social</h3><p>Targeted ad campaigns designed to maximize reach and ROI.</p></div>
-        <div class="card"><div class="icon">📊</div><h3>Analytics &amp; Reporting</h3><p>Clear, monthly insights that show what's working and what's next.</p></div>
-        <div class="card"><div class="icon">🤝</div><h3>Influencer Partnerships</h3><p>Sourcing and managing creators who align with your brand values.</p></div>
+        <!-- EDIT: Your focus areas -->
+        <div class="card"><div class="num">01</div><h3>Social Media Strategy</h3><p>Channel-native roadmaps that turn launches and milestones into momentum.</p></div>
+        <div class="card"><div class="num">02</div><h3>Developer Relations</h3><p>Building authentic trust with the developer communities behind the products they use.</p></div>
+        <div class="card"><div class="num">03</div><h3>Generative &amp; Agentic AI</h3><p>Translating cutting-edge AI tooling into use cases developers actually care about.</p></div>
+        <div class="card"><div class="num">04</div><h3>Community &amp; Storytelling</h3><p>Turning complex technical ecosystems into narratives that connect and teach.</p></div>
+        <div class="card"><div class="num">05</div><h3>Social Media Analytics</h3><p>Measuring what resonates and turning insights into the next great campaign.</p></div>
+        <div class="card"><div class="num">06</div><h3>Project Management</h3><p>Coordinating cross-functional launches end to end — on time and on message.</p></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== WORK / CAMPAIGN HIGHLIGHTS ===== -->
-  <section id="work">
-    <div class="wrap">
-      <h2 class="section-title">Campaign Highlights</h2>
-      <p class="section-sub">A few results I'm proud of. Swap these for your own wins.</p>
-      <div class="grid">
-        <!-- EDIT: Your real campaigns + metrics -->
-        <div class="card">
-          <div class="metric gradient-text">+248%</div>
-          <h3 style="margin-top:8px">Engagement Growth</h3>
-          <p>Rebuilt the content strategy for a lifestyle brand, tripling engagement in 90 days.</p>
-        </div>
-        <div class="card">
-          <div class="metric gradient-text">+62K</div>
-          <h3 style="margin-top:8px">New Followers</h3>
-          <p>Launched a TikTok series that grew the account from 8K to 70K followers.</p>
-        </div>
-        <div class="card">
-          <div class="metric gradient-text">4.5x</div>
-          <h3 style="margin-top:8px">Return on Ad Spend</h3>
-          <p>Managed a paid campaign that delivered 4.5x ROAS across Meta platforms.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TESTIMONIAL ===== -->
-  <section class="section-soft">
-    <div class="wrap">
-      <!-- EDIT: A client quote -->
-      <p class="quote">"Amanda completely transformed our social presence. She gets our brand, our audience, and somehow makes it all look effortless."</p>
-      <p class="byline">— Jordan Lee, Founder of Bloom &amp; Co.</p>
     </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
   <section id="contact">
-    <div class="wrap contact">
-      <h2 class="section-title">Let's Work Together</h2>
-      <p class="section-sub" style="margin-bottom:24px">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
-      <!-- EDIT: Your email -->
-      <a class="btn btn-primary" href="mailto:hello@amandaevans.com">Say Hello</a>
+    <div class="wrap contact-head">
+      <p class="label">// contact</p>
+      <h2>Let's build community together.</h2>
+      <p>Have a project, a launch, or a developer story to tell? LinkedIn is the best place to reach me — let's connect.</p>
       <div class="socials">
-        <!-- EDIT: Your real social links -->
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#" target="_blank" rel="noopener">TikTok</a>
+        <!-- EDIT: Your links -->
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/amanda-evans-social" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="social-link" href="https://github.com/al-evans" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
   </section>
@@ -234,9 +246,18 @@
   <footer>
     <div class="wrap">
       <!-- EDIT: Your name -->
-      <p>© <span id="year"></span> Amanda Evans · Built with 💜 on GitHub Pages</p>
+      <p>© <span id="year"></span> Amanda Evans — built on GitHub Pages</p>
     </div>
   </footer>
+
+  <!-- ===== PREVIEW-ONLY: accent color switcher. Tell me your pick and I'll remove this. ===== -->
+  <div id="swatcher" aria-label="Preview accent color">
+    <span>accent:</span>
+    <button data-c="#58a6ff" data-s="rgba(88,166,255,.12)" title="Blue" style="background:#58a6ff"></button>
+    <button data-c="#3fb950" data-s="rgba(63,185,80,.12)" title="Green" style="background:#3fb950"></button>
+    <button data-c="#bc8cff" data-s="rgba(188,140,255,.12)" title="Purple" style="background:#bc8cff"></button>
+    <button data-c="#e6edf3" data-s="rgba(230,237,243,.10)" title="Mono" style="background:#e6edf3"></button>
+  </div>
 
   <script>
     // Mobile menu toggle
@@ -246,6 +267,14 @@
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
     // Auto-update footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // PREVIEW-ONLY: live accent color switching (remove with the #swatcher markup before publishing)
+    document.querySelectorAll('#swatcher button').forEach(b => {
+      b.addEventListener('click', () => {
+        document.documentElement.style.setProperty('--accent', b.dataset.c);
+        document.documentElement.style.setProperty('--accent-soft', b.dataset.s);
+      });
+    });
   </script>
 </body>
 </html>
