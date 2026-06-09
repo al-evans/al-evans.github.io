@@ -15,7 +15,7 @@
   <style>
     /* ===== EDIT YOUR BRAND COLORS & FONTS HERE ===== */
     :root {
-      --accent: #58a6ff;            /* single accent — preview others with the swatcher, then I'll lock it in */
+      --accent: #58a6ff;            /* GitHub blue — your chosen accent */
       --accent-soft: rgba(88,166,255,.12);
       --bg: #0d1117;                /* deep charcoal canvas */
       --bg-soft: #161b22;           /* lifted panels / cards */
@@ -107,12 +107,6 @@
 
     footer { padding: 34px 0; border-top: 1px solid var(--border-soft); }
     footer p { color: var(--muted); font-size: .88rem; font-family: var(--font-mono); }
-
-    /* ===== PREVIEW-ONLY swatcher (remove before publishing) ===== */
-    #swatcher { position: fixed; bottom: 18px; right: 18px; z-index: 100; display: flex; align-items: center; gap: 9px; background: var(--bg-soft); border: 1px solid var(--border); padding: 9px 13px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.45); }
-    #swatcher span { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); }
-    #swatcher button { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); cursor: pointer; padding: 0; transition: transform .15s ease; }
-    #swatcher button:hover { transform: scale(1.18); }
 
     /* Mobile */
     @media (max-width: 760px) {
@@ -250,15 +244,6 @@
     </div>
   </footer>
 
-  <!-- ===== PREVIEW-ONLY: accent color switcher. Tell me your pick and I'll remove this. ===== -->
-  <div id="swatcher" aria-label="Preview accent color">
-    <span>accent:</span>
-    <button data-c="#58a6ff" data-s="rgba(88,166,255,.12)" title="Blue" style="background:#58a6ff"></button>
-    <button data-c="#3fb950" data-s="rgba(63,185,80,.12)" title="Green" style="background:#3fb950"></button>
-    <button data-c="#bc8cff" data-s="rgba(188,140,255,.12)" title="Purple" style="background:#bc8cff"></button>
-    <button data-c="#e6edf3" data-s="rgba(230,237,243,.10)" title="Mono" style="background:#e6edf3"></button>
-  </div>
-
   <script>
     // Mobile menu toggle
     const menuBtn = document.getElementById('menuBtn');
@@ -267,14 +252,6 @@
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
     // Auto-update footer year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // PREVIEW-ONLY: live accent color switching (remove with the #swatcher markup before publishing)
-    document.querySelectorAll('#swatcher button').forEach(b => {
-      b.addEventListener('click', () => {
-        document.documentElement.style.setProperty('--accent', b.dataset.c);
-        document.documentElement.style.setProperty('--accent-soft', b.dataset.s);
-      });
-    });
   </script>
 </body>
 </html>
