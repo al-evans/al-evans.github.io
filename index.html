@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- EDIT: Your name + tagline show up in the browser tab and Google results -->
+  <title>Amanda Evans — Social Media Manager</title>
+  <meta name="description" content="Social media manager helping brands grow through strategy, content, and community." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== EDIT YOUR BRAND COLORS & FONTS HERE ===== */
+    :root {
+      --accent: #7c3aed;        /* primary brand color */
+      --accent-2: #ec4899;      /* gradient partner color */
+      --ink: #1c1b29;           /* main text */
+      --muted: #6b7280;         /* secondary text */
+      --bg: #ffffff;
+      --bg-soft: #f7f6fb;
+      --card: #ffffff;
+      --radius: 18px;
+      --shadow: 0 12px 30px rgba(28,27,41,.08);
+      --font-head: "Poppins", system-ui, sans-serif;
+      --font-body: "Inter", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--ink); background: var(--bg); line-height: 1.65; }
+    h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .gradient-text { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* Buttons */
+    .btn { display: inline-block; padding: 13px 26px; border-radius: 999px; font-weight: 600; transition: transform .15s ease, box-shadow .15s ease; }
+    .btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #fff; box-shadow: var(--shadow); }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-ghost { border: 1.5px solid #e5e3ef; }
+    .btn-ghost:hover { border-color: var(--accent); }
+
+    /* Nav */
+    header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.85); backdrop-filter: blur(10px); border-bottom: 1px solid #eee; }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { font-family: var(--font-head); font-weight: 800; font-size: 1.2rem; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: var(--muted); font-weight: 500; }
+    .nav-links a:hover { color: var(--ink); }
+    .menu-btn { display: none; font-size: 1.5rem; background: none; border: 0; cursor: pointer; }
+
+    /* Hero */
+    .hero { padding: 90px 0 70px; background: radial-gradient(1200px 400px at 80% -10%, rgba(124,58,237,.10), transparent), var(--bg); }
+    .hero .eyebrow { color: var(--accent); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; font-size: .85rem; }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; margin: 14px 0 18px; }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 640px; }
+    .hero .cta { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    .section-soft { background: var(--bg-soft); }
+    .section-title { text-align: center; font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 700; }
+    .section-sub { text-align: center; color: var(--muted); margin: 12px auto 46px; max-width: 540px; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .skill { background: #fff; border: 1px solid #eee; padding: 8px 16px; border-radius: 999px; font-size: .9rem; font-weight: 500; }
+
+    /* Cards grid */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .card { background: var(--card); border: 1px solid #eee; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+    .card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: .96rem; }
+    .card .icon { font-size: 1.8rem; margin-bottom: 14px; }
+
+    /* Highlights / metrics */
+    .metric { font-family: var(--font-head); font-weight: 800; font-size: 2.4rem; }
+    .metric span { display: block; font-family: var(--font-body); font-weight: 500; font-size: .95rem; color: var(--muted); margin-top: 4px; }
+
+    /* Testimonial */
+    .quote { max-width: 760px; margin: 0 auto; text-align: center; font-family: var(--font-head); font-weight: 600; font-size: clamp(1.2rem, 2.6vw, 1.6rem); }
+    .quote + .byline { text-align: center; color: var(--muted); margin-top: 18px; }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .socials { display: flex; justify-content: center; gap: 18px; margin-top: 26px; flex-wrap: wrap; }
+    .socials a { font-weight: 600; color: var(--accent); }
+
+    footer { padding: 30px 0; text-align: center; color: var(--muted); font-size: .9rem; border-top: 1px solid #eee; }
+
+    /* Mobile */
+    @media (max-width: 780px) {
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: #fff; flex-direction: column; padding: 18px 24px; gap: 16px; border-bottom: 1px solid #eee; }
+      .nav-links.open { display: flex; }
+      .menu-btn { display: block; }
+      .about, .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <nav>
+        <!-- EDIT: Your name / initials -->
+        <a class="logo gradient-text" href="#">Amanda Evans</a>
+        <div class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Social Media Manager</p>
+      <!-- EDIT: Your headline -->
+      <h1>I help brands <span class="gradient-text">grow, connect,</span><br />and stand out online.</h1>
+      <!-- EDIT: One or two sentences about what you do -->
+      <p>Strategy-led content and community building that turns followers into loyal fans — and engagement into real results.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#work">View My Work</a>
+        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2 class="section-title" style="text-align:left">Hi, I'm Amanda 👋</h2>
+        <!-- EDIT: Your bio -->
+        <p style="margin-top:16px; color:var(--muted)">
+          I'm a social media manager with a passion for storytelling and data-driven creativity.
+          Over the past few years I've helped brands find their voice, build engaged communities,
+          and turn scrolls into meaningful connections. When I'm not planning content calendars,
+          you'll find me chasing trends and sipping way too much coffee.
+        </p>
+        <div class="skills">
+          <!-- EDIT: Your skills/tools -->
+          <span class="skill">Content Strategy</span>
+          <span class="skill">Instagram &amp; TikTok</span>
+          <span class="skill">Community Management</span>
+          <span class="skill">Paid Social</span>
+          <span class="skill">Analytics</span>
+          <span class="skill">Canva &amp; Adobe</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="metric">5+ <span>Years experience</span></div>
+        <div class="metric" style="margin-top:22px">30+ <span>Brands &amp; campaigns</span></div>
+        <div class="metric" style="margin-top:22px">1.2M <span>Audience reached</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="section-soft">
+    <div class="wrap">
+      <h2 class="section-title">What I Do</h2>
+      <p class="section-sub">Full-funnel social media support, from the first post to the final report.</p>
+      <div class="grid">
+        <!-- EDIT: Your services -->
+        <div class="card"><div class="icon">🎯</div><h3>Strategy &amp; Planning</h3><p>Audience research, content pillars, and roadmaps tailored to your goals.</p></div>
+        <div class="card"><div class="icon">✨</div><h3>Content Creation</h3><p>Scroll-stopping posts, reels, and stories that sound like your brand.</p></div>
+        <div class="card"><div class="icon">💬</div><h3>Community Management</h3><p>Genuine engagement that builds trust and keeps your audience coming back.</p></div>
+        <div class="card"><div class="icon">📈</div><h3>Paid Social</h3><p>Targeted ad campaigns designed to maximize reach and ROI.</p></div>
+        <div class="card"><div class="icon">📊</div><h3>Analytics &amp; Reporting</h3><p>Clear, monthly insights that show what's working and what's next.</p></div>
+        <div class="card"><div class="icon">🤝</div><h3>Influencer Partnerships</h3><p>Sourcing and managing creators who align with your brand values.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORK / CAMPAIGN HIGHLIGHTS ===== -->
+  <section id="work">
+    <div class="wrap">
+      <h2 class="section-title">Campaign Highlights</h2>
+      <p class="section-sub">A few results I'm proud of. Swap these for your own wins.</p>
+      <div class="grid">
+        <!-- EDIT: Your real campaigns + metrics -->
+        <div class="card">
+          <div class="metric gradient-text">+248%</div>
+          <h3 style="margin-top:8px">Engagement Growth</h3>
+          <p>Rebuilt the content strategy for a lifestyle brand, tripling engagement in 90 days.</p>
+        </div>
+        <div class="card">
+          <div class="metric gradient-text">+62K</div>
+          <h3 style="margin-top:8px">New Followers</h3>
+          <p>Launched a TikTok series that grew the account from 8K to 70K followers.</p>
+        </div>
+        <div class="card">
+          <div class="metric gradient-text">4.5x</div>
+          <h3 style="margin-top:8px">Return on Ad Spend</h3>
+          <p>Managed a paid campaign that delivered 4.5x ROAS across Meta platforms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL ===== -->
+  <section class="section-soft">
+    <div class="wrap">
+      <!-- EDIT: A client quote -->
+      <p class="quote">"Amanda completely transformed our social presence. She gets our brand, our audience, and somehow makes it all look effortless."</p>
+      <p class="byline">— Jordan Lee, Founder of Bloom &amp; Co.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="wrap contact">
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-sub" style="margin-bottom:24px">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+      <!-- EDIT: Your email -->
+      <a class="btn btn-primary" href="mailto:hello@amandaevans.com">Say Hello</a>
+      <div class="socials">
+        <!-- EDIT: Your real social links -->
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <!-- EDIT: Your name -->
+      <p>© <span id="year"></span> Amanda Evans · Built with 💜 on GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    // Auto-update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
