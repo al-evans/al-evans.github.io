@@ -98,6 +98,33 @@
     .card h3 { font-size: 1.08rem; font-weight: 600; margin: 12px 0 8px; }
     .card p { color: var(--muted); font-size: .94rem; }
 
+    /* ===== Featured work carousel ===== */
+    .carousel { position: relative; }
+    .carousel-track { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .post-card { flex: 0 0 clamp(280px, 78%, 358px); scroll-snap-align: center; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
+    .post-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .post-banner { position: relative; aspect-ratio: 16 / 9; background: linear-gradient(135deg, var(--accent-soft), var(--bg-soft)); overflow: hidden; }
+    .post-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-banner::after { content: attr(data-label); position: absolute; inset: 0; display: none; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: .85rem; color: var(--muted); }
+    .post-banner.no-img::after { display: flex; }
+    .post-body { padding: 20px 22px 22px; }
+    .post-tag { display: inline-block; font-family: var(--font-mono); font-size: .72rem; color: var(--accent); margin-bottom: 10px; }
+    .post-card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; }
+    .post-card p { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
+    .post-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .post-stat { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+    .post-link { font-family: var(--font-mono); font-size: .8rem; color: var(--accent); font-weight: 500; white-space: nowrap; }
+    .post-link:hover { text-decoration: underline; }
+    .carousel-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 22px; }
+    .carousel-dots { display: flex; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: 0; padding: 0; cursor: pointer; transition: background .2s ease, transform .2s ease; }
+    .dot.active { background: var(--accent); transform: scale(1.3); }
+    .carousel-arrows { display: flex; gap: 8px; }
+    .arrow { width: 40px; height: 40px; border-radius: 8px; background: var(--bg-soft); border: 1px solid var(--border); color: var(--ink); font-size: 1.05rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color .2s ease, color .2s ease, opacity .2s ease; }
+    .arrow:hover { border-color: var(--accent); color: var(--accent); }
+    .arrow:disabled { opacity: .35; cursor: default; }
+
     /* Contact */
     .contact-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin: 12px 0 16px; max-width: 600px; }
     .contact-head p { color: var(--muted); max-width: 520px; margin-bottom: 26px; }
@@ -128,6 +155,7 @@
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#focus">Focus</a>
+          <a href="#work">Work</a>
           <a href="#contact">Contact</a>
         </div>
         <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
@@ -144,7 +172,7 @@
       <!-- EDIT: One or two sentences about what you do -->
       <p>I work at the intersection of digital marketing, community building, and developer relations — helping developers connect, learn, and build.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="#experience">View Experience</a>
+        <a class="btn btn-primary" href="#work">View My Work</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/amanda-evans-social" target="_blank" rel="noopener">Connect on LinkedIn</a>
       </div>
     </div>
@@ -223,6 +251,79 @@
     </div>
   </section>
 
+  <!-- ===== FEATURED WORK / CAROUSEL ===== -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">// featured work</p>
+        <h2>Selected Posts &amp; Campaigns</h2>
+      </div>
+      <div class="carousel">
+        <div class="carousel-track" id="carouselTrack" tabindex="0" role="region" aria-label="Featured social media posts. Use arrow keys to navigate.">
+
+          <!-- CARD 1 — Octoverse (Instagram) -->
+          <article class="post-card">
+            <div class="post-banner" data-label="Instagram">
+              <!-- EDIT: upload to images/octoverse-2025.png -->
+              <img src="images/octoverse-2025.png" alt="2025 Octoverse report — chart of the top five programming languages" loading="lazy" style="object-position:top" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
+            </div>
+            <div class="post-body">
+              <span class="post-tag">Instagram</span>
+              <h3>2025 Octoverse Report</h3>
+              <p>Turning GitHub's annual Octoverse language data into a scroll-stopping, shareable visual story.</p>
+              <div class="post-meta">
+                <span class="post-stat">20.5K likes</span>
+                <a class="post-link" href="https://www.instagram.com/p/DQcDv6NjItV/?img_index=1" target="_blank" rel="noopener">View post ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2 — World Password Day (Instagram) -->
+          <article class="post-card">
+            <div class="post-banner" data-label="Instagram">
+              <!-- EDIT: upload to images/world-password-day.png -->
+              <img src="images/world-password-day.png" alt="World Password Day meme — GitHub sign-in screen with the password 'hunter2'" loading="lazy" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
+            </div>
+            <div class="post-body">
+              <span class="post-tag">Instagram</span>
+              <h3>World Password Day</h3>
+              <p>Dev humor meets security awareness — a World Password Day nod to passkeys (and a fond farewell to "hunter2").</p>
+              <div class="post-meta">
+                <span class="post-stat">6.7K likes</span>
+                <a class="post-link" href="https://www.instagram.com/p/DJHPPbht8pA/" target="_blank" rel="noopener">View post ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3 — Apollo 11 (LinkedIn) -->
+          <article class="post-card">
+            <div class="post-banner" data-label="LinkedIn">
+              <!-- EDIT: upload to images/apollo-11.png -->
+              <img src="images/apollo-11.png" alt="#OnThisDay Apollo 11 tribute — GitHub astronaut mascot on the moon" loading="lazy" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
+            </div>
+            <div class="post-body">
+              <span class="post-tag">LinkedIn</span>
+              <h3>#OTD: Apollo 11 Source Code</h3>
+              <p>An #OnThisDay tribute to the Apollo 11 guidance computer (AGC) source code — where open source meets history.</p>
+              <div class="post-meta">
+                <span class="post-stat">1K interactions</span>
+                <a class="post-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7221907130205847552/" target="_blank" rel="noopener">View post ↗</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <div class="carousel-nav">
+          <div class="carousel-dots" id="carouselDots"></div>
+          <div class="carousel-arrows">
+            <button class="arrow" id="prevBtn" aria-label="Previous post">←</button>
+            <button class="arrow" id="nextBtn" aria-label="Next post">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CONTACT ===== -->
   <section id="contact">
     <div class="wrap contact-head">
@@ -252,6 +353,63 @@
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
     // Auto-update footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Featured work carousel =====
+    (function () {
+      const track = document.getElementById('carouselTrack');
+      if (!track) return;
+      const cards = Array.from(track.children);
+      const dotsWrap = document.getElementById('carouselDots');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      // Build dot indicators
+      cards.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to post ' + (i + 1));
+        d.addEventListener('click', () => scrollToCard(i));
+        dotsWrap.appendChild(d);
+      });
+      const dots = Array.from(dotsWrap.children);
+
+      function scrollToCard(i) {
+        const cardRect = cards[i].getBoundingClientRect();
+        const trackRect = track.getBoundingClientRect();
+        const delta = (cardRect.left - trackRect.left) - (track.clientWidth - cards[i].clientWidth) / 2;
+        track.scrollTo({ left: track.scrollLeft + delta, behavior: 'smooth' });
+      }
+
+      function nearest() {
+        const trackRect = track.getBoundingClientRect();
+        const center = trackRect.left + track.clientWidth / 2;
+        let idx = 0, min = Infinity;
+        cards.forEach((c, i) => {
+          const r = c.getBoundingClientRect();
+          const dist = Math.abs((r.left + r.width / 2) - center);
+          if (dist < min) { min = dist; idx = i; }
+        });
+        return idx;
+      }
+
+      function update() {
+        const n = nearest();
+        dots.forEach((d, i) => d.classList.toggle('active', i === n));
+        prevBtn.disabled = n === 0;
+        nextBtn.disabled = n === cards.length - 1;
+      }
+
+      let t;
+      track.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(update, 80); });
+      prevBtn.addEventListener('click', () => scrollToCard(Math.max(0, nearest() - 1)));
+      nextBtn.addEventListener('click', () => scrollToCard(Math.min(cards.length - 1, nearest() + 1)));
+      track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); prevBtn.click(); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); nextBtn.click(); }
+      });
+      window.addEventListener('resize', update);
+      update();
+    })();
   </script>
 </body>
 </html>
