@@ -120,7 +120,7 @@
     .carousel { position: relative; }
     .carousel-track { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .carousel-track::-webkit-scrollbar { display: none; }
-    .post-card { flex: 0 0 clamp(280px, 78%, 358px); scroll-snap-align: center; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
+    .post-card { flex: 0 0 clamp(280px, 78%, 358px); scroll-snap-align: start; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
     .post-card:hover { border-color: var(--accent); transform: translateY(-3px); }
     .post-banner { position: relative; aspect-ratio: 16 / 9; background: linear-gradient(135deg, var(--accent-soft), var(--bg-soft)); overflow: hidden; }
     .post-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -312,7 +312,7 @@
             <div class="post-body">
               <span class="post-tag">Instagram</span>
               <h3>World Password Day</h3>
-              <p>Dev humor meets security awareness — a World Password Day nod to passkeys (and a fond farewell to "hunter2").</p>
+              <p>Dev humor meets security awareness — a World Password Day nod to passkeys (and a cheeky reference to "hunter2").</p>
               <div class="post-meta">
                 <span class="post-stat">6.7K likes</span>
                 <a class="post-link" href="https://www.instagram.com/p/DJHPPbht8pA/" target="_blank" rel="noopener">View post ↗</a>
@@ -329,7 +329,7 @@
             <div class="post-body">
               <span class="post-tag">LinkedIn</span>
               <h3>#OTD: Apollo 11 Source Code</h3>
-              <p>An #OnThisDay tribute to the Apollo 11 guidance computer (AGC) source code — where open source meets history.</p>
+              <p>An #OnThisDay tribute to the Apollo 11 guidance computer (AGC) source code</p>
               <div class="post-meta">
                 <span class="post-stat">1K interactions</span>
                 <a class="post-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7221907130205847552/" target="_blank" rel="noopener">View post ↗</a>
@@ -353,8 +353,8 @@
   <section id="contact">
     <div class="wrap contact-head">
       <p class="label">// contact</p>
-      <h2>Let's build community together.</h2>
-      <p>Have a project, a launch, or a developer story to tell? LinkedIn is the best place to reach me — let's connect.</p>
+      <h2>Want to chat social media?</h2>
+      <p>Let's connect.</p>
       <div class="socials">
         <!-- EDIT: Your links -->
         <a class="btn btn-primary" href="https://www.linkedin.com/in/amanda-evans-social" target="_blank" rel="noopener">Connect on LinkedIn</a>
@@ -399,19 +399,17 @@
       const dots = Array.from(dotsWrap.children);
 
       function scrollToCard(i) {
-        const cardRect = cards[i].getBoundingClientRect();
-        const trackRect = track.getBoundingClientRect();
-        const delta = (cardRect.left - trackRect.left) - (track.clientWidth - cards[i].clientWidth) / 2;
-        track.scrollTo({ left: track.scrollLeft + delta, behavior: 'smooth' });
+        // Align the target card's left edge with the track's left edge.
+        track.scrollTo({ left: cards[i].offsetLeft, behavior: 'smooth' });
       }
 
       function nearest() {
-        const trackRect = track.getBoundingClientRect();
-        const center = trackRect.left + track.clientWidth / 2;
+        // Pick the card whose left edge is closest to the current scroll
+        // position. Measuring from the left edge (not center) keeps the
+        // active dot correct on wide screens where several cards are visible.
         let idx = 0, min = Infinity;
         cards.forEach((c, i) => {
-          const r = c.getBoundingClientRect();
-          const dist = Math.abs((r.left + r.width / 2) - center);
+          const dist = Math.abs(c.offsetLeft - track.scrollLeft);
           if (dist < min) { min = dist; idx = i; }
         });
         return idx;
