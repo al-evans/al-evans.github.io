@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amanda Evans Social Card Variant 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.16);
+      --bg: #0d1117;
+      --bg-soft: #161b22;
+      --border: #30363d;
+      --ink: #e6edf3;
+      --muted: #8b949e;
+      --font-body: "Inter", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+    }
+
+    .card {
+      width: 1200px;
+      height: 630px;
+      border: 1px solid #21262d;
+      background:
+        radial-gradient(760px 300px at 85% -10%, var(--accent-soft), transparent 70%),
+        radial-gradient(480px 280px at 0% 100%, rgba(88, 166, 255, 0.1), transparent 72%),
+        var(--bg);
+      padding: 58px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .role {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      font-size: 22px;
+      margin: 0;
+    }
+
+    h1 {
+      margin: 28px 0 0;
+      font-size: 90px;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      max-width: 1040px;
+    }
+
+    .name {
+      color: var(--ink);
+    }
+
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: #21262d;
+      margin: 24px 0 22px;
+    }
+
+    .tagline {
+      font-size: 44px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 1060px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .tagline .accent {
+      color: var(--accent);
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: flex-end;
+      align-items: end;
+    }
+
+    .url {
+      font-family: var(--font-mono);
+      color: var(--muted);
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <section>
+      <div class="top">
+        <p class="role">Social Media Specialist</p>
+      </div>
+
+      <h1><span class="name">Amanda Evans</span></h1>
+      <div class="divider"></div>
+      <p class="tagline">Turning complex technical ecosystems into <span class="accent">stories developers love.</span></p>
+    </section>
+
+    <section class="bottom">
+      <span class="url">al-evans.github.io</span>
+    </section>
+  </main>
+</body>
+</html>
