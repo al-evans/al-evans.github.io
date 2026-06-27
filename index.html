@@ -562,7 +562,7 @@
       gallery.addEventListener('mouseenter', stop);
       gallery.addEventListener('mouseleave', start);
       gallery.addEventListener('focusin', stop);
-      gallery.addEventListener('focusout', start);
+      gallery.addEventListener('focusout', (e) => { if (!gallery.contains(e.relatedTarget)) start(); });
       document.addEventListener('visibilitychange', () => { document.hidden ? stop() : start(); });
 
       goTo(0);
