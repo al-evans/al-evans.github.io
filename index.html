@@ -541,6 +541,7 @@
         d.className = 'dot' + (i === 0 ? ' active' : '');
         d.setAttribute('aria-label', 'Go to award ' + (i + 1));
         d.addEventListener('click', () => { goTo(i); restart(); });
+        dotsWrap.appendChild(d);
       });
       const dots = Array.from(dotsWrap.children);
 
