@@ -526,6 +526,7 @@
       if (!track) return;
       const gallery = document.getElementById('awardsGallery');
       const slides = Array.from(track.children);
+      slides.forEach((s, i) => { s.setAttribute('aria-label', (i + 1) + ' of ' + slides.length); s.setAttribute('aria-posinset', i + 1); s.setAttribute('aria-setsize', slides.length); });
       const dotsWrap = document.getElementById('awardsDots');
       const prevBtn = document.getElementById('awardsPrev');
       const nextBtn = document.getElementById('awardsNext');
