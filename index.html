@@ -551,7 +551,7 @@
       }
       function next() { goTo(index + 1); }
       function prev() { goTo(index - 1); }
-      function start() { stop(); timer = setInterval(next, INTERVAL); }
+      function start() { stop(); if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; timer = setInterval(next, INTERVAL); }
       function stop() { if (timer) { clearInterval(timer); timer = null; } }
       function restart() { stop(); start(); }
 
