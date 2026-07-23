@@ -120,7 +120,7 @@
     .carousel { position: relative; }
     .carousel-track { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .carousel-track::-webkit-scrollbar { display: none; }
-    .post-card { flex: 0 0 clamp(280px, 78%, 358px); scroll-snap-align: start; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
+    .post-card { flex: 0 0 clamp(280px, 78%, 358px); display: flex; flex-direction: column; scroll-snap-align: start; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
     .post-card:hover { border-color: var(--accent); transform: translateY(-3px); }
     .post-banner { position: relative; aspect-ratio: 16 / 9; background: linear-gradient(135deg, var(--accent-soft), var(--bg-soft)); overflow: hidden; }
     .post-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -128,11 +128,11 @@
     .post-banner.no-img::after { display: flex; }
     /* Cards whose source image isn't 16:9: show the whole post (letterboxed) so nothing is cropped */
     .post-banner--contain img { object-fit: contain; }
-    .post-body { padding: 20px 22px 22px; }
+    .post-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1 1 auto; }
     .post-tag { display: inline-block; font-family: var(--font-mono); font-size: .72rem; color: var(--accent); margin-bottom: 10px; }
     .post-card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; }
     .post-card p { color: var(--muted); font-size: .92rem; margin-bottom: 16px; }
-    .post-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .post-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
     .post-stat { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
     .post-link { font-family: var(--font-mono); font-size: .8rem; color: var(--accent); font-weight: 500; white-space: nowrap; }
     .post-link:hover { text-decoration: underline; }
