@@ -128,6 +128,9 @@
     .post-banner.no-img::after { display: flex; }
     /* Cards whose source image isn't 16:9: show the whole post (letterboxed) so nothing is cropped */
     .post-banner--contain img { object-fit: contain; }
+    /* Letterbox fill matched to each post's own background so the bars blend in */
+    .post-banner--fill-black { background: #000; }
+    .post-banner--fill-white { background: #fff; }
     .post-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1 1 auto; }
     .post-tag { display: inline-block; font-family: var(--font-mono); font-size: .72rem; color: var(--accent); margin-bottom: 10px; }
     .post-card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; }
@@ -310,7 +313,7 @@
 
           <!-- CARD 1 — Jimothy in Copilot CLI (X) -->
           <article class="post-card">
-            <div class="post-banner post-banner--contain" data-label="X">
+            <div class="post-banner post-banner--contain post-banner--fill-black" data-label="X">
               <!-- EDIT: upload to images/jimothyX.png -->
               <img src="images/jimothyX.png" alt="GitHub post on X titled 'Jimothy spotted' showing the Copilot CLI terminal with a pixel-art raccoon" loading="lazy" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
             </div>
@@ -327,7 +330,7 @@
 
           <!-- CARD 2 — Backrooms meme (Instagram) -->
           <article class="post-card">
-            <div class="post-banner post-banner--contain" data-label="Instagram">
+            <div class="post-banner post-banner--contain post-banner--fill-white" data-label="Instagram">
               <!-- EDIT: upload to images/backrooms.png -->
               <img src="images/backrooms.png" alt="Backrooms meme on Instagram — an empty liminal-space room captioned 'Did you ever merge that pull request?'" loading="lazy" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
             </div>
@@ -353,7 +356,7 @@
               <h3>Your Repo, Now on CD-ROM</h3>
               <p>A deadpan announcement that your public repo is available on CD-ROM — physical media nostalgia that had devs sharing and quote-tweeting.</p>
               <div class="post-meta">
-                <span class="post-stat">5.8M views</span>
+                <span class="post-stat">5.9M views</span>
                 <a class="post-link" href="https://x.com/github/status/2072801888525840476" target="_blank" rel="noopener">View post ↗</a>
               </div>
             </div>
@@ -393,19 +396,19 @@
             </div>
           </article>
 
-          <!-- CARD 6 — Apollo 11 (LinkedIn) -->
+          <!-- CARD 6 — Apollo 11 (Instagram) -->
           <article class="post-card">
-            <div class="post-banner" data-label="LinkedIn">
+            <div class="post-banner" data-label="Instagram">
               <!-- EDIT: upload to images/apollo-11.png -->
-              <img src="images/apollo-11.png" alt="#OnThisDay Apollo 11 tribute — GitHub astronaut mascot on the moon" loading="lazy" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
+              <img src="images/apollo-11.png" alt="Margaret Hamilton standing beside the printed Apollo 11 guidance computer source code" loading="lazy" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
             </div>
             <div class="post-body">
-              <span class="post-tag">LinkedIn</span>
+              <span class="post-tag">Instagram</span>
               <h3>#OTD: Apollo 11 Source Code</h3>
               <p>An #OnThisDay tribute to the Apollo 11 guidance computer (AGC) source code.</p>
               <div class="post-meta">
-                <span class="post-stat">1K interactions</span>
-                <a class="post-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7221907130205847552/" target="_blank" rel="noopener">View post ↗</a>
+                <span class="post-stat">67.1K likes</span>
+                <a class="post-link" href="https://www.instagram.com/p/DbBi2dTH3EN/" target="_blank" rel="noopener">View post ↗</a>
               </div>
             </div>
           </article>
