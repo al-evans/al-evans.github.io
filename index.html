@@ -41,6 +41,7 @@
       --border-soft: #21262d;
       --ink: #e6edf3;              /* primary text (near-white) */
       --muted: #8b949e;            /* secondary text (gray) */
+      --muted-on-light: #57606a;  /* muted text on light/white backgrounds */
       --radius: 12px;
       --font-body: "Inter", system-ui, -apple-system, sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -131,6 +132,8 @@
     /* Letterbox fill matched to each post's own background so the bars blend in */
     .post-banner--fill-black { background: #000; }
     .post-banner--fill-white { background: #fff; }
+    .post-banner--fill-black.no-img::after { color: var(--ink); }
+    .post-banner--fill-white.no-img::after { color: var(--muted-on-light); }
     .post-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1 1 auto; }
     .post-tag { display: inline-block; font-family: var(--font-mono); font-size: .72rem; color: var(--accent); margin-bottom: 10px; }
     .post-card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; }
