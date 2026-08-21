@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- EDIT: Your name + tagline show up in the browser tab and Google results -->
-  <title>Amanda Kramer — Social Media Specialist</title>
+  <title>Amanda Kramer, Social Media Specialist</title>
   <meta name="description" content="GitHub social media specialist working at the intersection of digital marketing, community building, and developer relations." />
   <meta name="color-scheme" content="dark" />
 
@@ -12,14 +12,14 @@
   <!-- EDIT: custom share image (1200x630px) lives at images/social-card.png -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://al-evans.github.io/" />
-  <meta property="og:title" content="Amanda Kramer — Social Media Specialist" />
+  <meta property="og:title" content="Amanda Kramer, Social Media Specialist" />
   <meta property="og:description" content="GitHub social media specialist working at the intersection of digital marketing, community building, and developer relations." />
   <meta property="og:image" content="https://al-evans.github.io/images/social-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Amanda Kramer — Social Media Specialist at GitHub" />
+  <meta property="og:image:alt" content="Amanda Kramer, Social Media Specialist at GitHub" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Amanda Kramer — Social Media Specialist" />
+  <meta name="twitter:title" content="Amanda Kramer, Social Media Specialist" />
   <meta name="twitter:description" content="GitHub social media specialist working at the intersection of digital marketing, community building, and developer relations." />
   <meta name="twitter:image" content="https://al-evans.github.io/images/social-card.png" />
 
@@ -33,7 +33,7 @@
   <style>
     /* ===== EDIT YOUR BRAND COLORS & FONTS HERE ===== */
     :root {
-      --accent: #58a6ff;            /* GitHub blue — your chosen accent */
+      --accent: #58a6ff;            /* GitHub blue, your chosen accent */
       --accent-soft: rgba(88,166,255,.12);
       --bg: #0d1117;                /* deep charcoal canvas */
       --bg-soft: #161b22;           /* lifted panels / cards */
@@ -45,16 +45,21 @@
       --radius: 12px;
       --font-body: "Inter", system-ui, -apple-system, sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --float-distance: 20px;
+      --float-duration: 1.3s;
+      --float-ease: cubic-bezier(.22, 1, .36, 1);
+      --float-step: .5s;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: var(--font-body); color: var(--ink); background: var(--bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; }
+    p { text-wrap: pretty; }
     a { color: inherit; text-decoration: none; }
     .wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
 
-    /* Mono section labels — the "// comment" developer touch */
+    /* Mono section labels, the "// comment" developer touch */
     .label { font-family: var(--font-mono); font-size: .8rem; color: var(--accent); letter-spacing: .02em; }
 
     /* Buttons */
@@ -76,10 +81,30 @@
 
     /* Hero */
     .hero { padding: 110px 0 80px; background: radial-gradient(820px 320px at 72% -18%, var(--accent-soft), transparent); }
-    .hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.7rem); font-weight: 800; margin: 20px 0 22px; max-width: 760px; }
-    .hero h1 .accent { color: var(--accent); }
-    .hero p { font-size: 1.12rem; color: var(--muted); max-width: 620px; }
-    .hero .cta { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+    .hero-heading { position: relative; max-width: 760px; margin: 20px 0 22px; }
+    .hero-heading h1 { font-size: clamp(2.2rem, 5.5vw, 3.7rem); font-weight: 800; margin: 0; }
+    .hero-heading .accent { color: var(--accent); }
+    .headline-first, .headline-accent { position: relative; top: var(--float-distance); opacity: 0; }
+    .hero-heading.is-visible .headline-first { animation: headline-float-up var(--float-duration) var(--float-ease) forwards; }
+    .hero-heading.is-visible .headline-accent { animation: headline-float-up var(--float-duration) var(--float-ease) var(--float-step) forwards; }
+    .hero .label { font-family: var(--font-mono); font-size: .8rem; color: var(--accent); letter-spacing: .02em; }
+    .hero-followup p { font-size: 1.12rem; color: var(--muted); max-width: 620px; }
+    .hero .cta { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+    .typing-caret { display: inline-block; position: relative; width: 0; height: .9em; vertical-align: -.08em; }
+    .typing-caret::after { content: ""; position: absolute; bottom: 0; left: .08em; width: .08em; height: .9em; background: var(--accent); animation: caret-blink .8s step-end infinite; }
+    .hero-followup > p, .hero-followup .btn { opacity: 0; transform: translateY(var(--float-distance)); }
+    .hero-followup.is-visible > p { animation: hero-float-up var(--float-duration) var(--float-ease) 1.8s forwards; }
+    .hero-followup.is-visible .btn-primary { animation: hero-float-up var(--float-duration) var(--float-ease) 2.3s forwards; }
+    .hero-followup.is-visible .btn-ghost { animation: hero-float-up var(--float-duration) var(--float-ease) 2.8s forwards; }
+    @keyframes caret-blink { 50% { opacity: 0; } }
+    @keyframes headline-float-up { to { top: 0; opacity: 1; } }
+    @keyframes hero-float-up { to { opacity: 1; transform: translateY(0); } }
+    .about-title { min-height: 1.15em; }
+    .about-title .typing-caret { display: none; }
+    .about-title.is-typing .typing-caret { display: inline-block; }
+    .has-section-reveals [data-reveal] { opacity: 0; transform: translateY(var(--float-distance)); }
+    .has-section-reveals [data-reveal].is-visible { animation: section-float-up var(--float-duration) var(--float-ease) var(--reveal-delay, 0ms) forwards; }
+    @keyframes section-float-up { to { opacity: 1; transform: translateY(0); } }
 
     /* Sections */
     section { padding: 70px 0; border-top: 1px solid var(--border-soft); }
@@ -99,7 +124,7 @@
     .stat b { display: block; font-size: 1.9rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
     .stat span { color: var(--muted); font-size: .92rem; }
 
-    /* Experience — brands */
+    /* Experience, brands */
     .lede { color: var(--muted); max-width: 640px; margin-bottom: 28px; }
     .brands { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
     .brand { position: relative; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 20px; font-weight: 600; transition: border-color .2s ease, transform .2s ease; }
@@ -184,6 +209,9 @@
       html { scroll-behavior: auto; }
       .carousel-track { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+      .headline-first, .headline-accent { top: 0; opacity: 1; }
+      .hero-followup > p, .hero-followup .btn { opacity: 1; transform: none; }
+      .typing-caret { display: none; }
     }
 
     /* Mobile */
@@ -221,12 +249,16 @@
     <div class="wrap">
       <p class="label">GitHub · Social Media Specialist</p>
       <!-- EDIT: Your headline -->
-      <h1>Turning complex technical ecosystems into <span class="accent">stories developers love.</span></h1>
+      <div class="hero-heading">
+        <h1><span class="headline-first">Turning complex technical ecosystems into</span> <span class="accent headline-accent">stories developers&nbsp;love.</span></h1>
+      </div>
       <!-- EDIT: One or two sentences about what you do -->
-      <p>From open-source milestones to the latest in AI, I craft the content and campaigns that help developer brands grow.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="#work">View My Work</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/ak-social" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <div class="hero-followup">
+        <p>From open-source milestones to the latest in AI, I craft the content and campaigns that help developer brands grow.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#work">View My Work</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/ak-social" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
       </div>
     </div>
   </section>
@@ -236,20 +268,20 @@
     <div class="wrap">
       <div class="section-head">
         <p class="label">// about</p>
-        <h2>Hi, I'm Amanda</h2>
+        <h2 class="about-title" data-typewriter aria-label="Hi, I'm Amanda"><span class="typing-text">Hi, I'm Amanda</span><span class="typing-caret" aria-hidden="true"></span></h2>
       </div>
       <div class="about">
         <div>
           <!-- EDIT: Your bio -->
           <p>As <strong>GitHub's social media specialist</strong>, I operate at the intersection of digital marketing, community building, and developer relations.</p>
-          <p>My focus: translate complex technical ecosystems — from open-source milestones to AI tool use cases — into engaging community narratives that help developers <strong>connect, learn, and build</strong>.</p>
+          <p>My focus: translate complex technical ecosystems, from open-source milestones to AI tool use cases, into engaging community narratives that help developers <strong>connect, learn, and build</strong>.</p>
           <div class="skills">
             <!-- EDIT: Your skills -->
-            <span class="skill">Social Media Strategy</span>
-            <span class="skill">Developer Relations</span>
-            <span class="skill">Generative &amp; Agentic AI</span>
-            <span class="skill">Social Media Analytics</span>
-            <span class="skill">Project Management</span>
+            <span class="skill">Content Strategy</span>
+            <span class="skill">Community Building</span>
+            <span class="skill">Campaign Development</span>
+            <span class="skill">Trend Analysis</span>
+            <span class="skill">Cross-Functional Leadership</span>
           </div>
         </div>
         <div class="stat-card">
@@ -269,7 +301,7 @@
         <p class="label">// experience</p>
         <h2>Brands I've Helped Tell Their Story</h2>
       </div>
-      <p class="lede">Eleven years translating brands into stories — across automotive, travel, primetime entertainment, and now developer tech.</p>
+      <p class="lede">Eleven years translating brands into stories, across automotive, travel, primetime entertainment, and now developer tech.</p>
       <div class="brands">
         <!-- EDIT: Your brands -->
         <div class="brand">GitHub<small>Current</small></div>
@@ -280,7 +312,7 @@
       </div>
       <div class="edu">
         <span class="tag">EDU</span>
-        <span><b>B.A. in English</b> — University of California, Los Angeles (UCLA)</span>
+        <span><b>B.A. in English</b>, University of California, Los Angeles (UCLA)</span>
       </div>
     </div>
   </section>
@@ -299,7 +331,7 @@
         <div class="card"><div class="num">03</div><h3>Generative &amp; Agentic AI</h3><p>Translating cutting-edge AI tooling into use cases developers actually care about.</p></div>
         <div class="card"><div class="num">04</div><h3>Community &amp; Storytelling</h3><p>Turning complex technical ecosystems into narratives that connect and teach.</p></div>
         <div class="card"><div class="num">05</div><h3>Social Media Analytics</h3><p>Measuring what resonates and turning insights into the next great campaign.</p></div>
-        <div class="card"><div class="num">06</div><h3>Project Management</h3><p>Coordinating cross-functional launches end to end — on time and on message.</p></div>
+        <div class="card"><div class="num">06</div><h3>Project Management</h3><p>Coordinating cross-functional launches end to end, on time and on message.</p></div>
       </div>
     </div>
   </section>
@@ -314,7 +346,7 @@
       <div class="carousel">
         <div class="carousel-track" id="carouselTrack" tabindex="0" role="region" aria-label="Featured social media posts. Use arrow keys to navigate.">
 
-          <!-- CARD 1 — Jimothy in Copilot CLI (X) -->
+          <!-- CARD 1, Jimothy in Copilot CLI (X) -->
           <article class="post-card">
             <div class="post-banner post-banner--contain post-banner--fill-black" data-label="X">
               <!-- EDIT: upload to images/jimothyX.png -->
@@ -331,11 +363,11 @@
             </div>
           </article>
 
-          <!-- CARD 2 — Backrooms meme (Instagram) -->
+          <!-- CARD 2, Backrooms meme (Instagram) -->
           <article class="post-card">
             <div class="post-banner post-banner--contain post-banner--fill-white" data-label="Instagram">
               <!-- EDIT: upload to images/backrooms.png -->
-              <img src="images/backrooms.png" alt="Backrooms meme on Instagram — an empty liminal-space room captioned 'Did you ever merge that pull request?'" loading="lazy" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
+              <img src="images/backrooms.png" alt="Backrooms meme on Instagram, an empty liminal-space room captioned 'Did you ever merge that pull request?'" loading="lazy" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
             </div>
             <div class="post-body">
               <span class="post-tag">Instagram</span>
@@ -348,7 +380,7 @@
             </div>
           </article>
 
-          <!-- CARD 3 — Apollo 11 (Instagram) -->
+          <!-- CARD 3, Apollo 11 (Instagram) -->
           <article class="post-card">
             <div class="post-banner" data-label="Instagram">
               <!-- EDIT: upload to images/apollo-11.png -->
@@ -365,7 +397,7 @@
             </div>
           </article>
 
-          <!-- CARD 4 — Repo on CD-ROM (X) -->
+          <!-- CARD 4, Repo on CD-ROM (X) -->
           <article class="post-card">
             <div class="post-banner" data-label="X">
               <!-- EDIT: upload to images/cdrom.png -->
@@ -374,7 +406,7 @@
             <div class="post-body">
               <span class="post-tag">X</span>
               <h3>Your Repo, Now on CD-ROM</h3>
-              <p>A deadpan announcement that your public repo is available on CD-ROM — physical media nostalgia that had devs sharing and quote-tweeting.</p>
+              <p>A deadpan announcement that your public repo is available on CD-ROM, physical media nostalgia that had devs sharing and quote-tweeting.</p>
               <div class="post-meta">
                 <span class="post-stat">5.9M views</span>
                 <a class="post-link" href="https://x.com/github/status/2072801888525840476" target="_blank" rel="noopener">View post ↗</a>
@@ -382,11 +414,11 @@
             </div>
           </article>
 
-          <!-- CARD 5 — Octoverse (Instagram) -->
+          <!-- CARD 5, Octoverse (Instagram) -->
           <article class="post-card">
             <div class="post-banner" data-label="Instagram">
               <!-- EDIT: upload to images/octoverse-2025.png -->
-              <img src="images/octoverse-2025.png" alt="2025 Octoverse report — chart of the top five programming languages" loading="lazy" style="object-position:top" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
+              <img src="images/octoverse-2025.png" alt="2025 Octoverse report, chart of the top five programming languages" loading="lazy" style="object-position:top" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
             </div>
             <div class="post-body">
               <span class="post-tag">Instagram</span>
@@ -399,16 +431,16 @@
             </div>
           </article>
 
-          <!-- CARD 6 — World Password Day (Instagram) -->
+          <!-- CARD 6, World Password Day (Instagram) -->
           <article class="post-card">
             <div class="post-banner" data-label="Instagram">
               <!-- EDIT: upload to images/world-password-day.png -->
-              <img src="images/world-password-day.png" alt="World Password Day meme — GitHub sign-in screen with the password 'hunter2'" loading="lazy" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
+              <img src="images/world-password-day.png" alt="World Password Day meme, GitHub sign-in screen with the password 'hunter2'" loading="lazy" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();" />
             </div>
             <div class="post-body">
               <span class="post-tag">Instagram</span>
               <h3>World Password Day</h3>
-              <p>Dev humor meets security awareness — a World Password Day nod to passkeys (and a cheeky reference to "hunter2").</p>
+              <p>Dev humor meets security awareness, a World Password Day nod to passkeys (and a cheeky reference to "hunter2").</p>
               <div class="post-meta">
                 <span class="post-stat">6.7K likes</span>
                 <a class="post-link" href="https://www.instagram.com/p/DJHPPbht8pA/" target="_blank" rel="noopener">View post ↗</a>
@@ -437,7 +469,7 @@
       </div>
 
       <!-- Summary of the accolades -->
-      <p class="lede">Recognition from across the digital and B2B social industry — back-to-back Webby Awards honors for Sony Pictures Television properties and a 2026 nod as a Rising 30 nominee spotlighting the voices shaping B2B social.</p>
+      <p class="lede">Recognition from across the digital and B2B social industry, back-to-back Webby Awards honors for Sony Pictures Television properties and a 2026 nod as a Rising 30 nominee spotlighting the voices shaping B2B social.</p>
       <div class="award-summary">
         <div class="award-stat"><b>3</b><span>Industry honors</span></div>
         <div class="award-stat"><b>2×</b><span>Webby Awards Honoree</span></div>
@@ -465,7 +497,7 @@
                 <span class="award-kind">Webby Awards Honoree</span>
                 <h3>Wheel of Fortune × WWE</h3>
                 <p class="award-meta">International Academy of Digital Arts &amp; Sciences · Mar 2024</p>
-                <p class="award-desc">Honored in the Social — Promotions &amp; Contests category at the 2024 Webby Awards.</p>
+                <p class="award-desc">Honored in the Social, Promotions &amp; Contests category at the 2024 Webby Awards.</p>
                 <p class="award-assoc"><span class="tag">With</span> Sony Pictures Entertainment</p>
               </div>
             </article>
@@ -476,7 +508,7 @@
                 <span class="award-kind">Webby Awards Honoree</span>
                 <h3>Jeopardy.com 2.0</h3>
                 <p class="award-meta">International Academy of Digital Arts &amp; Sciences · Mar 2019</p>
-                <p class="award-desc">Honored in the Websites &amp; Mobile Sites — Television, Film &amp; Streaming category at the 2019 Webby Awards.</p>
+                <p class="award-desc">Honored in the Websites &amp; Mobile Sites, Television, Film &amp; Streaming category at the 2019 Webby Awards.</p>
                 <p class="award-assoc"><span class="tag">With</span> TVGla</p>
               </div>
             </article>
@@ -511,7 +543,7 @@
   <footer>
     <div class="wrap">
       <!-- EDIT: Your name -->
-      <p>© <span id="year"></span> Amanda Kramer — built on GitHub Pages</p>
+      <p>© <span id="year"></span> Amanda Kramer, built on GitHub Pages</p>
     </div>
   </footer>
 
@@ -523,6 +555,76 @@
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
     // Auto-update footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Start the hero animation after its hidden starting state has rendered.
+    setTimeout(() => {
+      document.querySelector('.hero-heading').classList.add('is-visible');
+      document.querySelector('.hero-followup').classList.add('is-visible');
+    }, 50);
+
+    // ===== Section reveal animations =====
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+
+      const revealGroups = [
+        { section: '#about', items: '.section-head, .about > *', delays: [0, 1500, 2000], delayed: true },
+        { section: '#experience', items: '.section-head, .lede, .brands .brand, .edu' },
+        { section: '#focus', items: '.section-head, .grid .card' },
+        { section: '#work', items: '.section-head, .carousel' },
+        { section: '#awards', items: '.section-head, .lede, .award-summary .award-stat, .awards-gallery' },
+        { section: '#contact', items: '.label, h2, p, .socials' }
+      ];
+      const targets = [];
+      const sectionStagger = 500;
+      const maximumSectionDelay = 1500;
+
+      function typeTitle(title) {
+        if (title.dataset.typed) return;
+
+        const text = title.querySelector('.typing-text');
+        if (!text) return;
+
+        title.dataset.typed = 'true';
+        const content = text.textContent;
+        text.textContent = '';
+        title.classList.add('is-typing');
+
+        setTimeout(function write(index) {
+          text.textContent += content[index];
+          if (index + 1 < content.length) {
+            setTimeout(() => write(index + 1), 65);
+          } else {
+            title.classList.remove('is-typing');
+          }
+        }, 250, 0);
+      }
+
+      revealGroups.forEach(group => {
+        const section = document.querySelector(group.section);
+        if (!section) return;
+
+        section.querySelectorAll(group.items).forEach((element, index) => {
+          element.dataset.reveal = '';
+          const delay = group.delays?.[index] ?? Math.min(index * sectionStagger, maximumSectionDelay);
+          element.style.setProperty('--reveal-delay', delay + 'ms');
+          targets.push({ element, delayed: group.delayed });
+        });
+      });
+
+      document.body.classList.add('has-section-reveals');
+      const reveal = (entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          entry.target.querySelectorAll('[data-typewriter]').forEach(typeTitle);
+          observer.unobserve(entry.target);
+        });
+      };
+      const observer = new IntersectionObserver(reveal, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+      const delayedObserver = new IntersectionObserver(reveal, { threshold: .12, rootMargin: '0px 0px -35% 0px' });
+
+      targets.forEach(({ element, delayed }) => (delayed ? delayedObserver : observer).observe(element));
+    })();
 
     // ===== Featured work carousel =====
     (function () {
