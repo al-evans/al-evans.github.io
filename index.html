@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js');</script>
   <!-- EDIT: Your name + tagline show up in the browser tab and Google results -->
   <title>Amanda Kramer, Social Media Specialist</title>
   <meta name="description" content="GitHub social media specialist working at the intersection of digital marketing, community building, and developer relations." />
@@ -84,18 +85,18 @@
     .hero-heading { position: relative; max-width: 760px; margin: 20px 0 22px; }
     .hero-heading h1 { font-size: clamp(2.2rem, 5.5vw, 3.7rem); font-weight: 800; margin: 0; }
     .hero-heading .accent { color: var(--accent); }
-    .headline-first, .headline-accent { position: relative; top: var(--float-distance); opacity: 0; }
-    .hero-heading.is-visible .headline-first { animation: headline-float-up var(--float-duration) var(--float-ease) forwards; }
-    .hero-heading.is-visible .headline-accent { animation: headline-float-up var(--float-duration) var(--float-ease) var(--float-step) forwards; }
+    html.js .headline-first, html.js .headline-accent { position: relative; top: var(--float-distance); opacity: 0; }
+    html.js .hero-heading.is-visible .headline-first { animation: headline-float-up var(--float-duration) var(--float-ease) forwards; }
+    html.js .hero-heading.is-visible .headline-accent { animation: headline-float-up var(--float-duration) var(--float-ease) var(--float-step) forwards; }
     .hero .label { font-family: var(--font-mono); font-size: .8rem; color: var(--accent); letter-spacing: .02em; }
     .hero-followup p { font-size: 1.12rem; color: var(--muted); max-width: 620px; }
     .hero .cta { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
     .typing-caret { display: inline-block; position: relative; width: 0; height: .9em; vertical-align: -.08em; }
     .typing-caret::after { content: ""; position: absolute; bottom: 0; left: .08em; width: .08em; height: .9em; background: var(--accent); animation: caret-blink .8s step-end infinite; }
-    .hero-followup > p, .hero-followup .btn { opacity: 0; transform: translateY(var(--float-distance)); }
-    .hero-followup.is-visible > p { animation: hero-float-up var(--float-duration) var(--float-ease) 1.8s forwards; }
-    .hero-followup.is-visible .btn-primary { animation: hero-float-up var(--float-duration) var(--float-ease) 2.3s forwards; }
-    .hero-followup.is-visible .btn-ghost { animation: hero-float-up var(--float-duration) var(--float-ease) 2.8s forwards; }
+    html.js .hero-followup > p, html.js .hero-followup .btn { opacity: 0; transform: translateY(var(--float-distance)); }
+    html.js .hero-followup.is-visible > p { animation: hero-float-up var(--float-duration) var(--float-ease) 1.8s forwards; }
+    html.js .hero-followup.is-visible .btn-primary { animation: hero-float-up var(--float-duration) var(--float-ease) 2.3s forwards; }
+    html.js .hero-followup.is-visible .btn-ghost { animation: hero-float-up var(--float-duration) var(--float-ease) 2.8s forwards; }
     @keyframes caret-blink { 50% { opacity: 0; } }
     @keyframes headline-float-up { to { top: 0; opacity: 1; } }
     @keyframes hero-float-up { to { opacity: 1; transform: translateY(0); } }
