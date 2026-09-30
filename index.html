@@ -151,6 +151,7 @@
     .post-card:hover { border-color: var(--accent); transform: translateY(-3px); }
     .post-banner { position: relative; aspect-ratio: 16 / 9; background: linear-gradient(135deg, var(--accent-soft), var(--bg-soft)); overflow: hidden; }
     .post-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-banner video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .post-banner::after { content: attr(data-label); position: absolute; inset: 0; display: none; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: .85rem; color: var(--muted); }
     .post-banner.no-img::after { display: flex; }
     /* Cards whose source image isn't 16:9: show the whole post (letterboxed) so nothing is cropped */
@@ -347,7 +348,26 @@
       <div class="carousel">
         <div class="carousel-track" id="carouselTrack" tabindex="0" role="region" aria-label="Featured social media posts. Use arrow keys to navigate.">
 
-          <!-- CARD 1, Jimothy in Copilot CLI (X) -->
+          <!-- CARD 1, Pixel Coffee Contributions (X) -->
+          <article class="post-card">
+            <div class="post-banner" data-label="X">
+              <!-- EDIT: upload to images/pixel-coffee-contributions.mp4 -->
+              <video autoplay muted loop playsinline preload="metadata" aria-label="Pixel-art coffee animation about GitHub contributions" onerror="this.closest('.post-banner').classList.add('no-img'); this.remove();">
+                <source src="images/pixel-coffee-contributions.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="post-body">
+              <span class="post-tag">X</span>
+              <h3>Pixel Coffee Contributions</h3>
+              <p>A playful pixel-art take on fueling your coding brain, one cup of coffee and contribution at a time.</p>
+              <div class="post-meta">
+                <span class="post-stat">Video</span>
+                <a class="post-link" href="https://x.com/github/status/2105042195321704818" target="_blank" rel="noopener">View post ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2, Jimothy in Copilot CLI (X) -->
           <article class="post-card">
             <div class="post-banner post-banner--contain post-banner--fill-black" data-label="X">
               <!-- EDIT: upload to images/jimothyX.png -->
@@ -364,7 +384,7 @@
             </div>
           </article>
 
-          <!-- CARD 2, Backrooms meme (Instagram) -->
+          <!-- CARD 3, Backrooms meme (Instagram) -->
           <article class="post-card">
             <div class="post-banner post-banner--contain post-banner--fill-white" data-label="Instagram">
               <!-- EDIT: upload to images/backrooms.png -->
@@ -381,7 +401,7 @@
             </div>
           </article>
 
-          <!-- CARD 3, Apollo 11 (Instagram) -->
+          <!-- CARD 4, Apollo 11 (Instagram) -->
           <article class="post-card">
             <div class="post-banner" data-label="Instagram">
               <!-- EDIT: upload to images/apollo-11.png -->
@@ -398,7 +418,7 @@
             </div>
           </article>
 
-          <!-- CARD 4, Repo on CD-ROM (X) -->
+          <!-- CARD 5, Repo on CD-ROM (X) -->
           <article class="post-card">
             <div class="post-banner" data-label="X">
               <!-- EDIT: upload to images/cdrom.png -->
@@ -415,7 +435,7 @@
             </div>
           </article>
 
-          <!-- CARD 5, Octoverse (Instagram) -->
+          <!-- CARD 6, Octoverse (Instagram) -->
           <article class="post-card">
             <div class="post-banner" data-label="Instagram">
               <!-- EDIT: upload to images/octoverse-2025.png -->
@@ -432,7 +452,7 @@
             </div>
           </article>
 
-          <!-- CARD 6, World Password Day (Instagram) -->
+          <!-- CARD 7, World Password Day (Instagram) -->
           <article class="post-card">
             <div class="post-banner" data-label="Instagram">
               <!-- EDIT: upload to images/world-password-day.png -->
